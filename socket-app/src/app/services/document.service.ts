@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+
 import { Socket } from 'ngx-socket-io';
-import { Observable } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
+
 import { Document } from '../models/document';
 
 @Injectable({
@@ -9,19 +9,16 @@ import { Document } from '../models/document';
 })
 export class DocumentService {
   currentDocument = this.socket.fromEvent<Document>('document');
+  documents = this.socket.fromEvent<string[]>('documents');
 
   constructor(private socket: Socket) { }
-
-  getDocuments(): Observable<string[]> {
-    return this.socket.fromEvent<string[]>('documents').pipe(shareReplay(1));
-  }
 
   getDocument(id: string) {
     this.socket.emit('getDoc', id);
   }
 
   newDocument() {
-    this.socket.emit('addDoc', { id: this.docId(), doc: 'Boilerplate' });
+    this.socket.emit('addDoc', { id: this.docId(), doc: '' });
   }
 
   editDocument(document: Document) {
