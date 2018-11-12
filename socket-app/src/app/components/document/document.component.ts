@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DocumentService } from 'src/app/services/document.service';
-import { Subscription, fromEvent, merge } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Document } from 'src/app/models/document';
 import { startWith } from 'rxjs/operators';
 
@@ -10,7 +10,6 @@ import { startWith } from 'rxjs/operators';
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent implements OnInit, OnDestroy {
-  @ViewChild('doc') docText: ElementRef<HTMLTextAreaElement>;
   document: Document;
   private _docSub: Subscription;
   constructor(private documentService: DocumentService) { }

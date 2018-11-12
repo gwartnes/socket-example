@@ -2,7 +2,6 @@
     position: fixed;
     height: 100%;
     width: 220px;
-    z-index: 10;
     top: 0;
     left: 0;
     background-color: #111111;
@@ -13,6 +12,7 @@
         padding: 6px 8px 6px 16px;
         text-decoration: none;
         font-size: 25px;
+        font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
         color: #818181;
         display: block;
     }.selected {

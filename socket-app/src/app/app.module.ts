@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
@@ -19,7 +18,6 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
   imports: [
     BrowserModule,
     FormsModule,
-    FlexLayoutModule,
     SocketIoModule.forRoot(config)
   ],
   providers: [],
